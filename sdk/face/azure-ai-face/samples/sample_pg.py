@@ -85,11 +85,8 @@ if __name__ == "__main__":
     result = operations.get_face(gid, pid, face_id)
     print(result)
 
-    result = operations.train_group(gid)
-    print(result)
-
-    result = operations.get_group_training_status(gid)
-    print(result)
+    poller = operations.begin_train_group(gid)
+    print(poller.result())
 
     fids = [
         client.detect_from_url(

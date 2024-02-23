@@ -65,11 +65,8 @@ if __name__ == "__main__":
     result = operations.get_list(lid)
     print(result)
 
-    result = operations.train_list(lid)
-    print(result)
-
-    result = operations.get_list_training_status(lid)
-    print(result)
+    poller = operations.begin_train_list(lid)
+    print(poller.result())
 
     fid = client.detect_from_url(
         url="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg"
